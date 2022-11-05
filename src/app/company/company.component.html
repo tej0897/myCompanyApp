@@ -1,1 +1,46 @@
-<p>company works!</p>
+<h1>CompanyApp!</h1>
+
+<div>
+
+    <form #companyFrom="ngForm" (ngSubmit)="addCompanyDetails()">
+        <input name="companyID" class="form-control" type="number" placeholder="Enter Company ID" [(ngModel)]="companyObj.companyID" required> <br>
+        
+        <input name="companyName" class="form-control" type="text" placeholder="Enter Company Name" [(ngModel)]="companyObj.companyName" required> <br>
+
+        <input name="companyCEO" class="form-control" type="text" placeholder="Enter Company CEO" [(ngModel)]="companyObj.companyCEO" required> <br>
+
+        <input name="turnover" class="form-control" type="number" placeholder="Enter Company Turnover" [(ngModel)]="companyObj.turnover" required> <br>
+
+        <input name="website" class="form-control" type="text" placeholder="Enter Company website" [(ngModel)]="companyObj.website" required> <br>
+
+        <button type="submit">Add Company Details</button>
+
+    </form>
+
+</div>
+
+<hr>
+<h2> See Company Details below: </h2>
+<div>
+
+    <button type="button" (click)="getCompanyList()"> View Company Details </button> <br>
+
+    <div *ngFor="let c of companyarr">
+        {{c.companyID}}-->{{c.companyName}}-->{{c.companyCEO}}-->{{c.turnover}}-->{{c.website}}-->{{c.stockPrice}}--><button type="button" class="btn btn-danger" (click)="deleteCompany(c.companyID)"> Delete Company </button>
+
+    </div>
+    <hr>
+
+    <h2>Search Company Below: </h2>
+    <div id="searchDiv">
+        <input type="number" [(ngModel)]="companym.companyID"> <br>
+        <button type="button" class="btn btn-info" (click)="getCompanyByID(companym.companyID)"> Search </button>
+
+        {{data}}
+
+    </div>
+
+</div>
+
+
+

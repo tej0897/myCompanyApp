@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { CommaExpr } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Stock } from './stock';
 
 @Injectable({
@@ -11,6 +13,15 @@ export class StockService {
 
   stockList: Stock[]|any;
 
-  private apiGetStock:string = "";
-  private apiPostStock:string = "";
+  private apiPostStock:string = "http://localhost:8081/api/stocks/add";
+  private apiGetStock:string = "http://localhost:8081/api/stocks/getAllStocks";
+
+  addStock(companyID:number, stock:Stock): Observable<Stock>{
+    return this.http.post<Stock>('${this.apiPostStock}/${companyID}', stock);
+  }
+
+  getAllStock(companyID:number): Observable<Array<Stock>>{
+    return this.http.get<Array<Stock>>('${this.apiGetStock}/${companyID}');
+  }
+  
 }
