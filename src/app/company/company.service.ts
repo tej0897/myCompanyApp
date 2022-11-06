@@ -27,12 +27,12 @@ export class CompanyService {
     return this.http.get<Array<Company>>(this.apiGet);
   }
 
-  deleteCompany(companyID:number): Observable<Company>{
-    return this.http.delete<Company>('${this.apiDelete}/${companyID}');
+  deleteCompany(cid:number): Observable<Company>{
+    return this.http.delete<Company>('${this.apiDelete}/${cid}');
   } 
 
-  getCompanyByID(companyID:number): Observable<Array<Company>>{
-    return this.http.get<Array<Company>>('${this.apiGetByID}/${companyID}');
+  getCompanyByID(cid:number): Observable<Array<Company>>{
+    return this.http.get<Array<Company>>('${this.apiGetByID}/${cid}');
   }
 
   updateCompany(companyObj:Company): Observable<Company>{

@@ -6,6 +6,7 @@ export class Company {
     companyCEO: string | any;
     turnover: string | any;
     website: string | any;
+    
     stockPrice: number | any;
     stockList: Array<Stock> = [];
 

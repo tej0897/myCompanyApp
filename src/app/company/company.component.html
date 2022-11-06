@@ -23,10 +23,12 @@
 <h2> See Company Details below: </h2>
 <div>
 
-    <button type="button" (click)="getCompanyList()"> View Company Details </button> <br>
+    <button type="button" (click)="getCompanyList()"> View Company Details </button> <br> <br>
 
-    <div *ngFor="let c of companyarr">
-        {{c.companyID}}-->{{c.companyName}}-->{{c.companyCEO}}-->{{c.turnover}}-->{{c.website}}-->{{c.stockPrice}}--><button type="button" class="btn btn-danger" (click)="deleteCompany(c.companyID)"> Delete Company </button>
+    <div *ngFor="let a of companyarr">
+        {{a.companyID}}-->{{a.companyName}}-->{{a.companyCEO}}-->{{a.turnover}}-->{{a.website}}-->{{a.stockPrice}}-->
+        
+        <button type="button" (click)="deleteCompany(a.companyID)"> Delete Company </button>
 
     </div>
     <hr>
@@ -34,7 +36,7 @@
     <h2>Search Company Below: </h2>
     <div id="searchDiv">
         <input type="number" [(ngModel)]="companym.companyID"> <br>
-        <button type="button" class="btn btn-info" (click)="getCompanyByID(companym.companyID)"> Search </button>
+        <button type="button" (click)="getCompanyByID(companym.companyID)"> Search </button>
 
         {{data}}
 
@@ -42,5 +44,5 @@
 
 </div>
 
-
+<br><br><br><br><br><br><br><br><br>
 

@@ -26,6 +26,7 @@ c: any;
       {
         this.data = JSON.stringify(data);
         this.companyarr.push(this.data);
+        console.log("Success");
         //window.location.reload();
       },error => {
         console.log(error);
@@ -42,10 +43,10 @@ c: any;
       })
   }
 
-  deleteCompany(companyID:number){
-    this.companyService.deleteCompany(companyID).subscribe(data =>
+  deleteCompany(cid:number){
+    this.companyService.deleteCompany(cid).subscribe(data =>
       {
-        let companyIndex = this.companyarr.findIndex(c=>c.companyID == companyID);
+        let companyIndex = this.companyarr.findIndex(c=>c.companyID == cid);
         this.companyarr.splice(companyIndex, 1);
         alert("Company Record is Deleted");
         window.location.reload();
@@ -63,7 +64,7 @@ c: any;
   companyData: Array<Company>=[];
   response:any;
 
-  getCompanyByID(companyID:number){
+  getCompanyByID(cid:number){
     this.companyService.getCompanyByID(this.companym.companyID).subscribe(data=>
       {
         this.companyData = Object.values(data);
